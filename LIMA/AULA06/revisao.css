@@ -1,0 +1,47 @@
+body {
+    background-color: whitesmoke;
+}
+
+header {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: grey;
+    text-align: center;
+}
+
+nav a {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    text-align: center;
+    list-style: none;
+
+}
+
+a {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+
+}
+
+.bemvindo {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 30px;
+}
+
+img {
+    height: 300px;
+    width: 200px;
+    position: relative;
+    top: 40px;
+    left: 40px;
+}
+
+footer p {
+    background-color: grey;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px 20px 30px 40px;
+}
+
+.tecnologia {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}

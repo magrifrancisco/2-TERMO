@@ -1,0 +1,211 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    line-height: 1.6;
+}
+
+main {
+    width: 85%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+
+
+
+header {
+    background-color: #243d61;
+    color: white;
+    text-align: center;
+    padding: 25px 20px;
+    width: 85%;
+    max-width: 1100px;
+    margin: 20px auto;
+}
+
+header h1 {
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+header p {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+section {
+    padding: 25px 20px;
+    margin-bottom: 10px;
+    border-bottom: 5px solid #eeeeee;
+}
+
+section h1,
+section h2 {
+    color: #243d61;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+section h2 {
+    font-size: 20px;
+}
+
+section h3 {
+    color: #243d61;
+    margin-bottom: 8px;
+}
+
+section p {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+
+
+.Bem-Vindo {
+    border: 4px solid #eeeeee;
+    min-height: 140px;
+}
+
+.Bem-Vindo h1 {
+    font-size: 20px;
+}
+
+.Bem-Vindo article {
+    text-align: left;
+}
+
+.Bem-Vindo img {
+    display: block;
+    width: 300px;
+    height: 100px;
+    margin: 0 auto 15px;
+    object-fit: cover;
+}
+
+
+.Sobre {
+    padding: 25px 20px;
+}
+
+.Sobre h1 {
+    font-size: 20px;
+}
+
+.Sobre p {
+    text-align: left;
+}
+
+
+
+
+section h2 {
+    font-weight: bold;
+}
+
+section h3 {
+    font-size: 16px;
+}
+
+
+
+section img {
+    max-width: 250px;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+}
+
+
+
+.Contato {
+    text-align: center;
+    background-color: #f8f8f8;
+    border: none;
+    padding: 30px;
+}
+
+.Contato h2 {
+    font-size: 20px;
+}
+
+.Contato a {
+    color: #243d61;
+    text-decoration: none;
+}
+
+.Contato a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+button {
+    background-color: #243d61;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #162b47;
+}
+
+
+
+
+@media (max-width: 700px) {
+
+    header,
+    main {
+        width: 95%;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    .Bem-Vindo img {
+        width: 100%;
+        max-width: 300px;
+    }
+}
