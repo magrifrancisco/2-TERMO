@@ -1,5 +1,7 @@
 # 2° Termo - Repositório de Atividades Acadêmicas
 
+V2.0
+
 ## Descrição do projeto
 
 Este repositório reúne as atividades, exercícios e projetos desenvolvidos durante o segundo termo do curso, abrangendo conteúdos de programação, desenvolvimento web e modelagem de dados. O objetivo é organizar os materiais das aulas e facilitar o acompanhamento das práticas realizadas em diferentes áreas do conhecimento.
