@@ -46,4 +46,25 @@ Valor Decimal(10,2),
 Observacao text(300),
 FOREIGN KEY(Id_Forncedor) REFERENCES Fornecedor (Id_Forncedor),
 FOREIGN KEY(Id_Produto) REFERENCES Produto (Id_Produto)
-)
+);
+
+-- DESAFIOS
+-- QUESTÃO 1
+-- CATEGORIA --- POSSUI --- PRODUTO
+-- 1,N E 1,1
+
+-- QUESTÃO 2
+FUNCIONARIO --- REGISTRA PEDIDO
+-- 1,N E 1,1
+
+-- QUESTÃO 3
+-- FORNCEDOR --- FORNECE --- PRODUTO
+-- 1,N E 1,N
+
+-- QUESTÃO 4
+CLIENTE --- RESERVA --- MESA
+0,N E 1,1
+
+QUESTÃO 5
+PEDIDO --- POSSUI --- ITEM_PEDIDO
+-- 1,N E 1,1
