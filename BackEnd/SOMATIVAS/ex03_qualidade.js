@@ -1,12 +1,12 @@
 // Exercício 3: Peça aprovada ou reprovada
 
-const readline = require('readline-sync');
+const entrada = require('readline-sync');
 
 
-const peso = readline.questionFloat('Informe o peso da peca (g): ');
+const peso = entrada.questionFloat('Informe o peso da peca em (g): ');
 
 if (peso >= 95 && peso <= 105) {
-  console.log(`Peso: ${peso}g - PEÇA APROVADA`);
+  console.log(`Peso: ${peso}g - PEÇA APROVADA!! 😁`);
 } else {
-  console.log(`Peso: ${peso}g - PEÇA REPROVADA`);
+  console.log(`Peso: ${peso}g - PEÇA REPROVADA 😞`);
 }
