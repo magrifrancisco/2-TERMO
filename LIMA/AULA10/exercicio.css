@@ -1,0 +1,17 @@
+.equipe {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    /* list-style: none;
+    margin: 30px;
+    align-items: center;
+    justify-content: space-between; */
+}
+
+.equipe2 {
+    margin: 30px;
+}
+
+.equipe3 {
+    display: flex;
+}
