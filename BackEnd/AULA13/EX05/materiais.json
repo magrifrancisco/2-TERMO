@@ -1,0 +1,20 @@
+[
+    {
+        "código": 1,
+        "descricao": "Martelo",
+        "quantidade": 50,
+        "valorUnitario": "20.90"
+    },
+    {
+        "código":2,
+        "descricao": "Barra de Alumínio",
+        "quantidade": 30,
+        "valorUnitario": 45.00
+    },
+    {
+        "código":3,
+        "descricao": "Chapa de Inox",
+        "quantidade": 20,
+        "valorUnitario": 110.00
+    }
+]

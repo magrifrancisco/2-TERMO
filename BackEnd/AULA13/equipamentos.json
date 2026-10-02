@@ -1,0 +1,20 @@
+[
+  {
+    "codigo": 101,
+    "nome": "Martelo",
+    "setor": "05-B",
+    "operacional": true
+  },
+  {
+    "codigo": 102,
+    "nome": "Chave Philips",
+    "setor": "09-C",
+    "operacional": true
+  },
+  {
+    "codigo": 103,
+    "nome": "Lima",
+    "setor": "02-A",
+    "operacional": false
+  }
+]
