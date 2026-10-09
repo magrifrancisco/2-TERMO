@@ -15,25 +15,37 @@ USE smartcoffee_dml_chico;
 
 -- 1. Cadastre dois novos clientes com dados diferentes.
 
-INSERT INTO cliente 
-(nome, email, telefone, cidade, ativo) 
-VALUES
-('Davi Ferreira', 'davi@email.com', '1999999901', 'Butao', TRUE),
-('Felipe Rodrigues', 'felipe@email.com', '1999999902', 'Limeira', TRUE),
+INSERT INTO cliente (nome, email, telefone, cidade, ativo) VALUES
+('Beatriz', 'beatriz@email.com', '1999999903', 'Americana', TRUE),
+('Lucas', 'lucas@email.com', '1999999904', 'Limeira', TRUE);
 
 -- 2. Cadastre a categoria 'Especiais da Casa'.
 
 INSERT INTO categoria (nome) VALUES
-('MOdas da Casa');
+('Modas da Casa');
 
 -- 3. Localize o id da categoria criada e cadastre três produtos nela.
-SET @id_categorias_especiais = LAST_INSERT_ID();
 
+-- 3. Localize o id da categoria criada.
 
-INSERT INTO produto (nome, preco, ativo, id_categoria) VALUES
-('Café Especial com Chocolate', 12.50, TRUE, @id_categorias_especiais),
-('Capuccino de Avelã', 14.00, TRUE, @id_categorias_especiais),
-('Café Expresso', 11.00, TRUE, @id_categorias_especiais);
+SELECT id_categoria, nome
+FROM categorias
+WHERE nome = 'Modas da Casa';
+
+-- Cadastre três produtos nessa categoria.
+
+INSERT INTO produtos (nome, preco, id_categoria)
+VALUES
+('Café Especial', 15.00, 
+    (SELECT id_categoria FROM categorias
+     WHERE nome = 'Modas da Casa')),
+('Mocha Chocolate', 18.00,
+    (SELECT id_categoria FROM categorias
+     WHERE nome = 'Modas da Casa')),
+('Capuccino de Avelã', 12.00
+    (SELECT id_categoria FROM categrias
+     WHERE nome = 'Modas da casa'));
+
 
 -- 4. Cadastre um terceiro cliente sem telefone.
 
@@ -79,34 +91,77 @@ WHERE id_cliente = 8;
 
 -- 9. Aumente em 8% o preço dos produtos da categoria 'Especiais da Casa'.
 
+SELECT *
+FROM produto
+WHERE id_categoria = (
+    SELECT id_categoria
+    FROM categoria
+    WHERE nome = 'MOdas da Casa'
+);
+
+-- UUPDATE produto
+SET preco = preco * 1.08
+WHERE id_categoria = (
+    SELECT id_categoria
+    FROM categoria
+    WHERE nome = 'MOdas da Casa'
+);
+
+-- SELECT final:
+SELECT *
+FROM produto
+WHERE id_categoria = (
+    SELECT id_categoria
+    FROM categoria
+    WHERE nome = 'MOdas da Casa'
+);
 
 -- 10. Altere o status do pedido criado para 'PREPARANDO'.
 
+SELECT * FROM pedido WHERE id_pedido = @pedido_atividade;
+UPDATE pedido
+SET status_pedido = 'Preparando'
+WHERE id_pedido = @pedido_atividade;
 
 -- 11. Atualize valor_total do pedido de acordo com os itens cadastrados.
 --     Você pode calcular previamente com SELECT SUM(quantidade * preco_unitario).
 
+SELECT SUM(quantidade * preco_unitario) AS total_pedido
+FROM item_pedido
+WHERE id_pedido = @pedido_atividade;
 
 -- 12. Escolha um dos produtos criados e faça uma exclusão lógica (ativo = FALSE).
 
+UPDATE produto
+SET ativo = FALSE
+WHERE id_produto = 1;
 
 -- PARTE C - DELETE
 
 -- 13. Crie um cliente de teste sem pedidos.
 --     Depois localize e exclua apenas esse cliente.
 
+SELECT * FROM cliente WHERE nome = 'Teste';
+DELETE FROM cliente
+WHERE nome = 'Teste';
 
 -- 14. Tente excluir um cliente da base original que possua pedidos.
 --     Deixe o DELETE comentado após o teste e descreva o erro abaixo.
 -- Resultado observado:
 
+SELECT * FROM cliente WHERE id_cliente = 1;
+DELETE FROM cliente
+WHERE id_cliente = 1;
 
 -- 15. Explique em comentário por que a FK bloqueou a exclusão.
 -- Resposta:
 
 
+
 -- 16. Crie uma categoria temporária chamada 'Excluir Depois' e remova-a.
 
+SELECT * FROM categoria WHERE nome = 'Excluir Depois';
+INSERT INTO categoria (nome) VALUES ('Excluir Depois');
 
 -- PARTE D - INTEGRIDADE E ERROS CONTROLADOS
 -- Execute uma tentativa por vez. Depois deixe o comando problemático comentado.
