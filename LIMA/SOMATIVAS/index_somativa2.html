@@ -9,9 +9,7 @@
 <body>
 
     <header class="cabeçalho">
-        <div class="logo">
-            <h1>NOSTALGIA <span>PLAY</span></h1>
-        </div>
+        <h1 class="logo">NOSTALGIA <span>PLAY</span></h1>
         <nav>
             <a href="#">Início</a>
             <a href="#">Clássicos</a>
@@ -23,7 +21,7 @@
 
     <main>
         <section class="hero">
-            <div class="hero-conteudo">
+            <article class="hero-conteudo">
                 <p class="tagline">80 • 90 • 2000</p>
                 <h2>HISTÓRIAS QUE ATRAVESSARAM GERAÇÕES.</h2>
                 <p class="descricao">
@@ -31,15 +29,12 @@
                     que transformaram tardes comuns em grandes aventuras.
                 </p>
                 <button class="btn-play">APERTAR O PLAY</button>
-            </div>
+            </article>
 
-            <div class="hero-card">
-                <div class="card-ilustracao">
-                   
-                    <p class="card-legenda">MEMÓRIAS EM MODO REPLAY.</p>
-                    <img src="https://c.files.bbci.co.uk/B351/production/_124650954_fifa22coverfinal.jpg" alt="FIFA 22" class="imagem-fifa">
-                </div>
-            </div>
+            <figure class="hero-card">
+                <figcaption class="card-legenda">MEMÓRIAS EM MODO REPLAY.</figcaption>
+                <img src="https://c.files.bbci.co.uk/B351/production/_124650954_fifa22coverfinal.jpg" alt="FIFA 22" class="imagem-fifa">
+            </figure>
         </section>
 
         <section class="classicos">
@@ -47,38 +42,64 @@
             <h2>CLÁSSICOS QUE CHEGARAM PARA FICAR</h2>
             <p class="subtitulo">Duas produções anteriores aos anos 90 que permaneceram vivas na memória de quem cresceu cercado por fantasia e aventura.</p>
 
-            <div class="cards-classicos">
-                <div class="card-item">
+            <article class="cards-classicos">
+                <figure class="card-item">
                     <img src="cavaleiros.jpg" alt="Cavaleiros do Zodíaco">
-                    <span>1986</span>
-                </div>
-                <div class="card-item">
+                    <figcaption>1986</figcaption>
+                </figure>
+                <figure class="card-item">
                     <img src="caverna.jpg" alt="Caverna do Dragão">
-                    <span>1983</span>
-                </div>
-            </div>
+                    <figcaption>1983</figcaption>
+                </figure>
+            </article>
         </section>
 
         <section class="herois">
             <p class="tagline">FAIXA ESPECIAL</p>
             <h2>HERÓIS QUE DOMINARAM A TV</h2>
-            <p>Tokusatsu, ação e personagens que viraram memória afetiva.</p>
-            <img src="#" alt="METAL HERO"> <p>JASPION</p>
-            <img src="#" alt="NINJA HERO"> <p>JIRAYA</p>
-            <img src="#" alt="TOKUSATSU"> <p>KAMEN RIDER BLACK</p>
+            <p class="subtitulo">Tokusatsu, ação e personagens que viraram memória afetiva.</p>
+            
+            <article class="cards-container">
+                <figure class="card">
+                    <img src="#" alt="Metal Hero">
+                    <figcaption>
+                        <span class="categoria">METAL HERO</span>
+                        <h3>JASPION</h3>
+                    </figcaption>
+                </figure>
+
+                <figure class="card">
+                    <img src="#" alt="Ninja Hero">
+                    <figcaption>
+                        <span class="categoria">NINJA HERO</span>
+                        <h3>JIRAYA</h3>
+                    </figcaption>
+                </figure>
+
+                <figure class="card">
+                    <img src="#" alt="Tokusatsu">
+                    <figcaption>
+                        <span class="categoria">TOKUSATSU</span>
+                        <h3>KAMEN RIDER BLACK</h3>
+                    </figcaption>
+                </figure>
+            </article>
         </section>
     </main>
 
-    <section class="produções">
-        <P class="tag-line"> O PASSADO CONTINUA PRESENTE
-        </P>
-        <h1>NOVAS PRODUÇÕES,
-        VELHAS EMOÇÕES</h1>
+    <section class="producoes">
+        <p class="tag-line">O PASSADO CONTINUA PRESENTE</p>
+        <h1>NOVAS PRODUÇÕES,<br> VELHAS EMOÇÕES<br></h1>
 
-
+        <article class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLOlJc_Wyq-3e1frxKk7mVA12uZkbRPVzjHsj7QWywEw&s=10" alt="X-MEN '97" class="imagem_x-men"> 
+            <header>
+                <span class="number">01</span>
+                <span class="category"><br>CONTINUAÇÃO<br></span>
+                <h2 class="title">X-MEN '97</h2>
+            </header>
+        </article>
     </section>
-
-    
 
 </body>
 </html>

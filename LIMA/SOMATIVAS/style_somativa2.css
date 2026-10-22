@@ -4,6 +4,7 @@
     --branco: #ffffff;
     --rosa: #ff1493;
     --azul-claro: #00d2ff;
+    --roxo-claro: #9932cc;
 }
 
 * {
@@ -83,7 +84,7 @@ nav a.btn-sobre {
 .tag-line {
     color: var(--azul-claro);
     font-weight: bold;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     letter-spacing: 1px;
 }
 
@@ -121,4 +122,28 @@ nav a.btn-sobre {
     height: 250px;
     width: 280px;
     overflow: hidden;
+}
+
+.card-clássicos { 
+  display: flex;  
+  box-sizing: content-box;
+  width: 200px;
+  padding: 20px;
+  border: 6px solid #F59E0B;
+} 
+.imagem_x-men {
+    height: 250px;
+    width: auto;
+    overflow: hidden;
+}
+.cabeçalho {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  gap: 16px;
+  padding: 12px 16px;
+  color: var(--fundo-escuro)
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #E2E8F0;
 }
