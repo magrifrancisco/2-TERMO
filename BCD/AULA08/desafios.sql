@@ -169,15 +169,20 @@ INSERT INTO categoria (nome) VALUES ('Excluir Depois');
 -- 17. Tente inserir um produto com id_categoria = 9999.
 -- Qual restrição impediu a operação?
 
-
-
+SELECT * FROM produto WHERE id_categoria = 9999;
+INSERT INTO produto (nome, preco, id_categoria) VALUES ('Produto Teste', 10.00, 9999);
 -- 18. Tente cadastrar um cliente usando 'ana@email.com'.
 -- Qual restrição impediu a operação?
 
+SELECT * FROM cliente
+WHERE EMAIL = 'ana@email.com';
 
 -- 19. Tente criar um pedido com id_cliente = 9999.
 -- Qual restrição impediu a operação?
 
+SELECT * FROM cliente 
+WHERE id_cliente = 9999;
+INSERT INTO PEDIDO (DATA_PEDIDO, STATUS, VALOR_TOTAL, ID_CLIENTE) VALUES (NOW(), 'ABERTO', 0.00, 9999);
 
 -- 20. Escreva em comentários a diferença entre os três erros anteriores.
 
