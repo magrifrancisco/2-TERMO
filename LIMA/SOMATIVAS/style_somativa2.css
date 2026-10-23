@@ -23,20 +23,26 @@ body {
     line-height: 1.6;
 }
 
-
+/* CABEÇALHO */
 .cabeçalho {
+    position: sticky;
+    top: 0;
+    z-index: 10;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 8%;
+    background-color: var(--fundo-escuro);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.logo h1 {
+.logo {
     font-size: 1.5rem;
     margin: 0;
 }
 
-.logo h1 span {
+.logo span {
     color: var(--rosa);
 }
 
@@ -63,25 +69,20 @@ nav a.btn-sobre {
     border-radius: 20px;
 }
 
+/* HERO (Seção Principal) */
 .hero {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 8%;
+    padding: 60px 8%;
     gap: 40px;
 }
 
 .hero-conteudo {
-    max-width: 500px;
+    max-width: 550px;
 }
 
-.tagline {
-    color: var(--azul-claro);
-    font-weight: bold;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-}
-.tag-line {
+.tagline, .tag-line {
     color: var(--azul-claro);
     font-weight: bold;
     font-size: 0.9rem;
@@ -109,7 +110,34 @@ nav a.btn-sobre {
     cursor: pointer;
 }
 
+/* ESTILIZAÇÃO DO CARD DA DIREITA (FIFA / REFERÊNCIA) */
+.hero-card {
+    margin: 0;
+    background-color: var(--card-fundo);
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column-reverse; /* Coloca a legenda na parte inferior conforme a imagem de referência */
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
 
+.card-legenda {
+    color: #aaa;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.imagem-fifa {
+    width: 320px;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* CLÁSSICOS E HERÓIS */
 .classicos, .herois {
     padding: 40px 8%;
 }
@@ -118,32 +146,160 @@ nav a.btn-sobre {
     font-size: 2.2rem;
     margin-top: 5px;
 }
- .imagem-fifa {
-    height: 250px;
-    width: 280px;
-    overflow: hidden;
+
+.subtitulo {
+    color: #aaa;
 }
 
-.card-clássicos { 
-  display: flex;  
-  box-sizing: content-box;
-  width: 200px;
-  padding: 20px;
-  border: 6px solid #F59E0B;
-} 
-.imagem_x-men {
-    height: 250px;
-    width: auto;
-    overflow: hidden;
+.cards-classicos, .cards-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
 }
-.cabeçalho {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  display: flex;
-  gap: 16px;
-  padding: 12px 16px;
-  color: var(--fundo-escuro)
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid #E2E8F0;
+
+.card-item, .herois .card {
+    background-color: var(--card-fundo);
+    padding: 15px;
+    border-radius: 10px;
+    flex: 1;
+}
+
+.card-item img, .herois .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.categoria {
+    color: var(--azul-claro);
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* PRODUÇÕES */
+.producoes {
+    padding: 40px 8%;
+    background-color: var(--fundo-escuro);
+}
+
+.producoes h1 {
+    font-size: 28px;
+    line-height: 1.2;
+}
+
+.producoes .card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    background-color: var(--card-fundo);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.imagem_x-men, .producoes .card img {
+    height: 120px;
+    width: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.number {
+    color: var(--rosa);
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.category {
+    color: var(--azul-claro);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.title {
+    color: var(--branco);
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+/* FAIXA FINAL */
+.faixa-final {
+    background: linear-gradient(to right, #7540ff, #ff4085);
+    padding: 35px 10px;
+    text-align: center;
+}
+
+.faixa-final p:first-child {
+    color: #ffe56b;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.faixa-final h2 {
+    color: var(--branco);
+    font-size: 56px;
+    margin: 0;
+}
+
+.faixa-final p:last-child {
+    color: var(--branco);
+    font-size: 11px;
+}
+
+/* RODAPÉ */
+.rodape {
+    background-color: #070711;
+    padding: 20px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.rodape h2 {
+    color: var(--branco);
+    font-size: 1rem;
+    margin: 0;
+}
+
+.rodape h2 span {
+    color: var(--rosa);
+}
+
+.rodape p {
+    color: #b8b6c6;
+    font-size: 0.85rem;
+}
+
+.rodape nav a {
+    color: var(--azul-claro);
+    font-size: 0.85rem;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.rodape .creditos {
+    width: 100%;
+    text-align: center;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .imagem-fifa {
+        width: 100%;
+        height: auto;
+    }
+
+    .cards-classicos, .cards-container {
+        flex-direction: column;
+    }
 }
