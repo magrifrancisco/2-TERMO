@@ -1,0 +1,151 @@
+/* VARIÁVEIS PARA FORMATAÇÃO GERAL */
+/* CRIAÇÃO DE LAYOUT DE CORES  */
+:root {
+    --expresso: #2b170d;
+    --café: #5a321b;
+    --caramelo: #c66a1a;
+    --creme: #f3e6d7;
+    --marfim: #FFF9F3;
+    --taupe: #9A887A;
+    --texto: #1E140F;
+    --branco: #ffffff;
+
+}
+
+/* Configurações Básicas  */
+* {
+    box-sizing: border-box;
+    /* Aplicar o conteudo a total o site */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+
+
+
+body {
+    margin: 0;
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    color: var(--texto);
+    background-color: var(--marfim);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Formatação de Fontes e Tamanhos */
+h1, h2, h3 {
+    margin-top: 0;
+    color:var(--expresso);
+}
+
+h1 {
+    font-size: 3rem;
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--expresso);
+    padding: 20px 8%;
+}
+
+.menu {
+    display: flex;
+    gap: 23px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu a {
+    color: var(--branco);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.menu a:hover {
+    color: var(--caramelo);
+}
+
+.menu a:focus-visible {
+    outline: 3px solid var(--caramelo);
+}
+
+.banner {
+    display: flex;
+    align-items: center;
+    background-color: var(--creme);
+    gap: 48px;
+    padding: 80px 8%;
+}
+
+.banner-conteudo, .banner-imagem {
+    flex:  1;
+}
+
+.banner-imagem {
+    margin: 0;
+}
+
+.banner-imagem {
+    margin: 0;
+}
+
+.banner-imagem img {
+    width: 100%;
+    border-radius: 18px;
+}
+
+.btn-principal {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 12px 24px;
+    background-color: var(--caramelo);
+    color: var(--branco);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.btn-principal:hover {
+    background-color: var(--café);
+}
+
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+body > header {
+    padding: 10px 10px 20px;
+    background-color: #5A321B;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* margin: 20px; */
+    text-decoration: none;
+}
+nav a{
+   justify-content: space-evenly;
+}
