@@ -1,11 +1,11 @@
--- Geração de Modelo físico
+-- Geraï¿½ï¿½o de Modelo fï¿½sico
 -- Sql ANSI 2003 - brModelo.
 
 
 
 CREATE TABLE Cliente (
 Nome_cliente varchar(60),
-Id_Cliente Int Auto_Increment Prinary Key
+Id_Cliente Int Auto_Increment Primary Key
 )
 
 CREATE TABLE Pedido (
