@@ -3,34 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartCoffee | Cafeteria</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Importação de Fontes Google -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com">
-     <link rel="stylesheet" href="">
-     <link rel="stylesheet" href="">
-     <link rel="stylesheet" href="">
-    <title>SMARTCOFFE</title>
 </head>
 <body>
-    
-    <header>
-       
-            <h1>SMARTCOFFEE</h1>
-        
-   
 
+    <header class="cabecalho">
+    <a class="logo" href="#inicio">
+    <img src="logo.png" alt="Logo SmartCoffee">
+    <span class="nome-smart">Smart</span><span class="nome-coffee">Coffee</span>
+    </a>
 
-        <nav>
-    
-    <a href="#">Início</a>
-    <a href="#">Sobre</a>
-    <a href="#">Produtos</a>
-    <a href="#">Contato</a>
-    
-        
+        <nav class="menu">
+            <a href="#inicio">Início</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#produtos">Produtos</a>
+            <a href="#contato">Contato</a>
         </nav>
-            
     </header>
-    
+
+    <main>
+
+        <section class="inicio" id="inicio">
+            <div class="inicio-texto">
+                <p class="subtitulo">CAFÉ FEITO COM CARINHO</p>
+                <h1>Café que<br>Conecta Pessoas</h1>
+                <p>Mais que café, momentos especiais.</p>
+                <a class="botao" href="#produtos">Ver Cafés</a>
+            </div>
+
+            <div class="imagem imagem-principal"></div>
+        </section>
+
+        <section class="sobre" id="sobre">
+            <div class="sobre-texto">
+                <p class="subtitulo">NOSSA HISTÓRIA</p>
+                <h2>Mais que café</h2>
+
+                <p>
+                    Acreditamos que um bom café tem o poder
+                    de aproximar pessoas. Por isso, selecionamos
+                    nossos grãos com cuidado e preparamos cada
+                    bebida para transformar pequenas pausas
+                    em grandes momentos.
+                </p>
+
+                <a class="botao" href="#contato">Saiba mais</a>
+            </div>
+
+            <div class="imagem imagem-sobre"></div>
+        </section>
+
+      
+        <section class="produtos" id="produtos">
+            <div class="titulo-secao">
+                <p class="subtitulo">FEITO PARA VOCÊ</p>
+                <h2>Nossos Cafés</h2>
+            </div>
+
+            <div class="grade-produtos">
+
+                <article class="produto">
+                    <div class="imagem imagem-produto"></div>
+                    <h3>Café Especial</h3>
+                    <p>
+                        Um café encorpado e aromático,
+                        perfeito para começar bem o dia.
+                    </p>
+                </article>
+
+                <article class="produto">
+                    <div class="imagem imagem-produto"></div>
+                    <h3>Cappuccino Cremoso</h3>
+                    <p>
+                        Uma combinação equilibrada de café,
+                        leite e uma espuma deliciosa.
+                    </p>
+                </article>
+
+                <article class="produto">
+                    <div class="imagem imagem-produto"></div>
+                    <h3>Latte Artesanal</h3>
+                    <p>
+                        Leve, cremoso e preparado na hora
+                        para deixar sua pausa especial.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        
+        <section class="assinatura">
+            <div class="imagem imagem-assinatura"></div>
+
+            <div class="assinatura-texto">
+                <p class="subtitulo">UMA EXPERIÊNCIA DIFERENTE</p>
+                <h2>Seu café favorito, em casa</h2>
+
+                <p>
+                    Receba cafés selecionados e descubra
+                    novos sabores sem sair de casa.
+                    Escolha seu plano e tenha momentos
+                    especiais em qualquer lugar.
+                </p>
+
+                <a class="botao" href="#contato">Conheça</a>
+            </div>
+        </section>
+
+      
+        <section class="contato" id="contato">
+            <div class="contato-texto">
+                <p class="subtitulo">FALE COM A GENTE</p>
+                <h2>Contato</h2>
+
+                <p>
+                    Tem alguma dúvida ou sugestão?
+                    Envie uma mensagem para nós.
+                </p>
+
+                <p class="linha-contato">
+                    contato@smartcoffee.com.br
+                </p>
+
+                <p class="linha-contato">
+                    (19) 99999-9999
+                </p>
+            </div>
+
+            <form class="formulario">
+                <label for="nome">Nome</label>
+                <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    placeholder="Seu nome"
+                    required
+                >
+
+                <label for="email">E-mail</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="seuemail@exemplo.com"
+                    required
+                >
+
+                <label for="mensagem">Mensagem</label>
+                <textarea
+                    id="mensagem"
+                    name="mensagem"
+                    rows="3"
+                    placeholder="Escreva sua mensagem..."
+                    required
+                ></textarea>
+
+                <button class="botao" type="submit">
+                    Enviar
+                </button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer class="rodape">
+        <p>© 2026 SmartCoffee. Feito com carinho.</p>
+    </footer>
+
 </body>
+</html>
+
