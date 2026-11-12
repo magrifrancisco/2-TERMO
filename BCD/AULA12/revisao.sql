@@ -5,7 +5,6 @@
 
 DROP DATABASE biblioteca_senai_chico;
 CREATE DATABASE IF NOT EXISTS biblioteca_senai_chico;
-
 USE biblioteca_senai_chico;
 
 -- CRIAÇÃO DE TABELAS
