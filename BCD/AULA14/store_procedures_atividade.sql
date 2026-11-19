@@ -1,0 +1,167 @@
+-- Active: 1795086292877@@127.0.0.1@3306@smartcoffee_procedures_chico
+USE smartcoffee_procedures_chico;
+
+DROP DATABASE IF EXISTS smartcoffee_procedures_chico;
+
+-- AULA 13 - ATIVIDADE STORED PROCEDURES
+-- Aluno: Francisco Miguel Magri
+-- Turma: 2DEVIS
+
+-- 1. listar_clientes_ativos()
+
+DELIMITER $$
+
+CREATE PROCEDURE LISTAR_CLIENTES_ATIVOS()
+BEGIN
+    SELECT ID_CLIENTE AS CODIGO, NOME, EMAIL, TELEFONE
+    FROM CLIENTE
+    WHERE ATIVO = TRUE 
+    ORDER BY NOME;
+END
+DELIMITER ; 
+
+CALL lISTAR_CLIENTES_ATIVOS(1);
+
+
+-- 2. buscar_produto_por_nome(IN p_busca VARCHAR(100))
+
+DELIMITER $$
+CREATE PROCEDURE BUSCAR_PRODUTOS_POR_NOME(IN p_busca VARCHAR(100))
+BEGIN
+    SELECT ID_PRODUTO AS CODIGO, NOME, PRECO, ATIVO
+    FROM PRODUTO
+    WHERE NOME LIKE CONCAT('%', P_BUSCA, '%')
+    ORDER BY NOME;
+END $$
+CALL BUSCAR_PRODUTOS_POR_NOME(1);
+
+-- 3. produtos_por_categoria(IN p_id_categoria INT)
+
+DELIMITER $$
+CREATE PROCEDURE PRODUTOS_POR_CATEGORIA(IN p_id_categoria INT)
+BEGIN
+    SELECT ID_PRODUTO AS CODIGO, NOME, PRECO, ATIVO
+    FROM PRODUTO
+    WHERE ID_CATEGORIA = P_ID_CATEGORIA
+    ORDER BY NOME;
+END $$
+CALL PRODUTOS_POR_CATEGORIA(1);
+
+-- 5. consultar_estoque(IN p_id_produto INT) usando variável local
+
+DELIMITER $$
+CREATE PROCEDURE CONSULTAR_ESTOQUE(IN p_id_produto INT)
+BEGIN
+    DECLARE v_estoque INT;
+    SELECT ESTOQUE INTO v_estoque
+    FROM PRODUTO
+    WHERE ID_PRODUTO = P_ID_PRODUTO;
+    SELECT v_estoque AS ESTOQUE;
+END $$
+CALL CONSULTAR_ESTOQUE(2);
+
+-- 6. classificar estoque: 0 SEM ESTOQUE / <=5 BAIXO / >5 NORMAL
+
+DELIMITER $$
+CREATE PROCEDURE CLASSIFICAR_ESTOQUE(IN p_id_produto INT)
+BEGIN
+    DECLARE v_estoque INT;
+    SELECT ESTOQUE INTO v_estoque
+    FROM PRODUTO
+    WHERE ID_PRODUTO = P_ID_PRODUTO;
+    
+    IF v_estoque = 0 THEN
+        SELECT 'SEM ESTOQUE' AS CLASSIFICACAO;
+    ELSEIF v_estoque <= 5 THEN
+        SELECT 'BAIXO' AS CLASSIFICACAO;
+    ELSE
+        SELECT 'NORMAL' AS CLASSIFICACAO;
+    END IF;
+END $$
+CALL CLASSIFICAR_ESTOQUE(2);
+
+-- 8. alterar_preco(...) impedindo valor <= 0
+
+DELIMITER $$
+CREATE PROCEDURE ALTERAR_PRECO(IN p_id_produto INT, IN p_novo_preco DECIMAL(10,2))
+BEGIN
+    IF p_novo_preco <= 0 THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'O preço deve ser maior que zero.';
+    ELSE
+        UPDATE PRODUTO
+        SET PRECO = p_novo_preco
+        WHERE ID_PRODUTO = P_ID_PRODUTO;
+    END IF;
+END $$
+
+-- 9. criar_pedido(IN p_id_cliente INT, OUT p_id_pedido INT)
+
+DELIMITER $$
+CREATE PROCEDURE CRIAR_PEDIDO(IN p_id_cliente INT, OUT p_id_pedido INT)
+BEGIN
+    INSERT INTO PEDIDO (ID_CLIENTE, DATA_PEDIDO, STATUS_PEDIDO)
+    VALUES (P_ID_CLIENTE, NOW(), 'ABERTO');
+    
+    SET P_ID_PEDIDO = LAST_INSERT_ID();
+END $$
+
+-- 10. devolver ID com LAST_INSERT_ID()
+
+DELIMITER $$
+CREATE PROCEDURE DEVOLVER_ID_PEDIDO(IN p_id_cliente INT, OUT p_id_pedido INT)
+BEGIN
+    INSERT INTO PEDIDO (ID_CLIENTE, DATA_PEDIDO, STATUS_PEDIDO)
+    VALUES (P_ID_CLIENTE, NOW(), 'ABERTO');
+    
+    SET P_ID_PEDIDO = LAST_INSERT_ID();
+END $$
+
+-- 11. adicionar_item_pedido(...) buscando o preço atual
+
+DELIMITER $$
+CREATE PROCEDURE ADICIONAR_PEDIDO_ITEM (
+    IN P_ID_PEDIDO INT,
+    IN P_ID_PRODUTO INT,
+    IN P_QUANTIDADE INT
+)
+BEGIN
+    DECLARE V_PRECO DECIMAL(10,2);
+    IF P_QUANTIDADE <=0 THEN
+        SELECT 'QUANTIDADE INVÁLIDA' AS MENSAGEM;
+    ELSE
+        SELECT PRECO
+        INTO V_PRECO 
+        FROM PRODUTO
+        WHERE ID_PRODUTO = P_ID_PRODUTO
+            AND ATIVO = TRUE;
+
+        INSERT INTO ITEM_PEDIDO (
+            ID_PEDIDO, ID_PRODUTO, QUANTIDADE, PRECO_UNITARIO
+        )
+        VALUES (
+            P_ID_PEDIDO, P_ID_PRODUTO, P_QUANTIDADE, V_PRECO
+        );
+        SELECT 'ITEM ADICIONADO' AS MENSAGEM;
+    END IF;
+END $$
+DELIMITER;
+CALL ADICIONAR_PEDIDO_ITEM(1,2,2);
+
+-- 12. Faça uma chamada inválida e explique o resultado.
+
+CALL ADICIONAR_PEDIDO_ITEM(1,2,4);
+
+-- 13. Use SHOW CREATE PROCEDURE.
+
+
+
+-- 14. Remova uma procedure com DROP PROCEDURE IF EXISTS e recrie-a.
+
+
+
+-- DESAFIO FINAL:
+-- Crie uma procedure de negócio com:
+-- - pelo menos 2 parâmetros;
+-- - variável local;
+-- - IF;
+-- - pelo menos uma alteração no banco.
